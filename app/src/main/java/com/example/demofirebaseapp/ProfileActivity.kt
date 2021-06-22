@@ -29,10 +29,10 @@ class ProfileActivity : AppCompatActivity() {
 
                 }
 
-                R.id.miProfile ->{
-                    Intent(this,ProfileActivity::class.java).also { startActivity(it) }
-
-                }
+//                R.id.miProfile ->{
+//                    Intent(this,ProfileActivity::class.java).also { startActivity(it) }
+//
+//                }
             }
             true
         }
@@ -65,7 +65,6 @@ class ProfileActivity : AppCompatActivity() {
             Firebase.auth.signOut()
             finish()
             Intent(this,SignIn::class.java).also{
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(it)
             }
         }

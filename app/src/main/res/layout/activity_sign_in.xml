@@ -7,13 +7,13 @@
     tools:context=".SignIn">
 
 
-
     <TextView
         android:id="@+id/tvUILogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="UI Login"
+        android:fontFamily="@font/pacifico"
+        android:text="Kinterest  "
         android:textColor="#2012EF"
         android:textSize="43sp"
         android:textStyle="bold"

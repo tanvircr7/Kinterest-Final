@@ -40,10 +40,10 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.miHome -> {
-                    Intent(this,MainActivity::class.java).also { startActivity(it) }
-
-                }
+//                R.id.miHome -> {
+//                    Intent(this,MainActivity::class.java).also { startActivity(it) }
+//
+//                }
 
                 R.id.miProfile ->{
                     Intent(this,ProfileActivity::class.java).also { startActivity(it) }

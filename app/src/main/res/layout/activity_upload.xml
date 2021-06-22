@@ -4,60 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/upload_bg"
     tools:context=".UploadActivity">
 
     <Button
         android:id="@+id/chooseImgBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/btn_top"
         android:text="Choose Image"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/saveImgBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="84dp"
-        android:text="Save Image"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/btn_top3"
+        android:text="Save and Upload"
+        android:textAllCaps="false"
+        android:textColor="#0CFB5A"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.069"
         app:layout_constraintStart_toStartOf="parent" />
+
 
     <Button
         android:id="@+id/displayImgBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Display Image"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/login_btn_bg"
+        android:fontFamily="@font/londrina"
+        android:text="Exhibition Display"
+        android:textSize="22sp"
+        android:letterSpacing="0.107"
+        android:textStyle="bold"
+        app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/saveImgBtn"
-        app:layout_constraintVertical_bias="0.617" />
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toEndOf="@+id/saveImgBtn" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEdittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter your name and image"
+        android:layout_marginBottom="20dp"
+        android:hint="Enter your e-mail and image name"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/ivUpload"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chooseImgBtn"
-        app:layout_constraintVertical_bias="0.344" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/ivUpload"
         android:layout_width="wrap_content"
         android:layout_height="450dp"
-        app:layout_constraintBottom_toTopOf="@+id/saveImgBtn"
+        android:layout_marginBottom="104dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

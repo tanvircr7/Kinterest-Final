@@ -19,7 +19,7 @@ class MyFirebaseAdapter(private val context: Context, private val uploadList: Li
             Picasso.with(context).load(upload.getImageUrl())
                 .placeholder(R.mipmap.ic_launcher_round)
                 .fit()
-                .centerCrop()
+                .centerInside()
                 .into(itemView.cardFirebaseIv)
         }
 

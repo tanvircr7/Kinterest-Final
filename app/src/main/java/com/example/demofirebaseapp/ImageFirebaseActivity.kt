@@ -3,6 +3,7 @@ package com.example.demofirebaseapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.*
@@ -21,6 +22,7 @@ class ImageFirebaseActivity : AppCompatActivity() {
 
         rvFirebase.setHasFixedSize(true)
         rvFirebase.layoutManager = LinearLayoutManager(this)
+
 
         // TODO: collecting children data to show on Recyclerview
         val uploadList = mutableListOf<Upload>()

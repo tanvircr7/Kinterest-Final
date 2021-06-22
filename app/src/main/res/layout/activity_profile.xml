@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/profile_bg"
     tools:context=".ProfileActivity">
 
 
@@ -11,6 +12,9 @@
         android:id="@+id/bottomNavigationView2"
         android:layout_width="match_parent"
         android:layout_height="75dp"
+        android:background="@drawable/gradient_background2"
+        app:itemIconSize="28dp"
+        app:itemTextColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -29,49 +33,97 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
+        android:id="@+id/textView3"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/viaoda"
+        android:text="Username"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/userNameDb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
         android:id="@+id/userNameDb"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:text="Username"
+        android:fontFamily="@font/pacifico"
+        android:textSize="30sp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/bottomNavigationView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.781"
+        app:layout_constraintHorizontal_bias="0.123"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.066" />
+        app:layout_constraintVertical_bias="0.383" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/viaoda"
+        android:text="Email"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/userEmailDb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/userEmailDb"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/rancho"
+        android:text="User-email"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.781"
+        app:layout_constraintHorizontal_bias="0.123"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userNameDb"
-        app:layout_constraintVertical_bias="0.079" />
+        app:layout_constraintVertical_bias="0.241" />
+
 
     <Button
         android:id="@+id/logOutBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Log Out"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/btn_top2"
+        android:text="Log out"
+        android:textAllCaps="false"
+        android:textColor="#FF2B58"
+        android:textSize="21sp"
+        app:backgroundTint="@null"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.127"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.957" />
+        app:layout_constraintHorizontal_bias="0.084"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/ideaUploadBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Upload"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/login_btn_bg"
+        android:text="Post Your Idea"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="@null"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.761"
-        app:layout_constraintStart_toEndOf="@+id/logOutBtn"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.957" />
+        app:layout_constraintVertical_bias="0.947" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

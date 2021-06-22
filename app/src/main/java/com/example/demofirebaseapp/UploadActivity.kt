@@ -18,6 +18,8 @@ import com.google.firebase.storage.UploadTask
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_upload.*
 
+
+
 class UploadActivity : AppCompatActivity() {
 
     private val IMAGE_REQUEST = 1

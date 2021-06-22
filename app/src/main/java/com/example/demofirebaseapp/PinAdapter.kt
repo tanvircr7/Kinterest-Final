@@ -16,8 +16,8 @@ class PinAdapter(private val context: Context, private val pins: List<Pin>)
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         var img = "sazia"
         fun bind(pin: Pin) {
-            itemView.tvName.text = pin.name
-            itemView.tvLikes.text = " Likes :${pin.likes}"
+//            itemView.tvName.text = pin.name
+//            itemView.tvLikes.text = " Likes :${pin.likes}"
             Glide.with(context).load(pin.pinUrl).into(itemView.ivPin)
             img = img.replace("sazia",pin.pinUrl)
         }
