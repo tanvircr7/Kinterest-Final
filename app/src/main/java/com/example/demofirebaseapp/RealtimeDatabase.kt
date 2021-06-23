@@ -19,11 +19,13 @@ class RealtimeDatabase {
     }
 
     // [START rtdb_write_new_user]
-    fun writeNewUser(userId: String, name: String, email: String) {
-        val user = User(name, email)
+    fun writeNewUser(name: String, email: String): String {
+        val user = User(); user.setUserName(name); user.setUserEmail(email)
+        val userId = database.child("users").push().key
         Log.w("RealtimeDB","Writing new user")
-        Log.i(TAG,userId)
-        database.child("users").child(userId).setValue(user)
+        Log.i(TAG,userId.toString())
+        database.child("users").child(userId!!).setValue(user)
+        return userId
     }
 
     // Read

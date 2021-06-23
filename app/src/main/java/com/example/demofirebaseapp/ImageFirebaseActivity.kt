@@ -35,9 +35,6 @@ class ImageFirebaseActivity : AppCompatActivity() {
                     Log.i(TAG, upload?.getImageName().toString())
                     uploadList.add(upload!!)
                 }
-//                uploadList.add(Upload("hamburger","https://picsum.photos/id/237/200/300"))
-//                uploadList.add(Upload("kobutor","https://picsum.photos/seed/picsum/200/300"))
-//                uploadList.add(Upload("stuff","https://picsum.photos/200/300?grayscale"))
 
                 val myFirebaseAdapter = MyFirebaseAdapter(applicationContext, uploadList)
                 rvFirebase.adapter = myFirebaseAdapter

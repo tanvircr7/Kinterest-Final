@@ -20,6 +20,7 @@ import com.google.firebase.ktx.Firebase
 
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.google.firebase.auth.ktx.auth
 
 import com.google.firebase.database.ktx.database
 
@@ -53,6 +54,7 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+
         //rvPins.setBackgroundColor(Color.WHITE)
         val pins = mutableListOf<Pin>()
         val pinAdapter = PinAdapter(this,pins)
@@ -83,7 +85,6 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
 
 
 }

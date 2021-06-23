@@ -5,11 +5,16 @@ package com.example.demofirebaseapp
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_edit_pro_img.*
 import kotlinx.android.synthetic.main.activity_profile.*
+import kotlinx.android.synthetic.main.activity_profile.dpImg
 
 
 class ProfileActivity : AppCompatActivity() {
@@ -17,6 +22,7 @@ class ProfileActivity : AppCompatActivity() {
     private val TAG = "ProfileActivity"
     private lateinit var auth: FirebaseAuth
     private lateinit var userObj: User
+    lateinit private var databaseReference: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,25 +43,38 @@ class ProfileActivity : AppCompatActivity() {
             true
         }
 
-        //var realtimeDb: RealtimeDatabase = RealtimeDatabase()
+        // Load Image--------------------------------------------------------------------------------------------------
+        auth = FirebaseAuth.getInstance()
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users")
+
+        dpImg.setOnClickListener {
+            Intent(this,EditProImgActivity::class.java).also{
+                startActivity(it)
+            }
+        }
+
+        getUserinfo()
+
         // Show user Name and Email------------------------------------------------------------------------------------
         userObj = getUserProfile()
-        userEmailDb.text = userObj.email // setting email
+        userEmailDb.text = userObj.getUserEmail() // setting email
+        val uName = UserName()
+        //userObj.setUserEmail(uName.getUserName(userObj.getUserEmail()))
+        userNameDb.text = uName.getUserName(userObj.getUserEmail())
 
-        userNameDb.text = userObj.username
-
-
-
-
-
-
-
-        Log.i(TAG,userObj.username+userObj.email)
+        Log.i(TAG,userObj.getUserEmail()+userObj.getUserName())
 
 
         // Upload Ideas Button   Go - Profile Activity -->> Upload Activity--------------------------------------------
         ideaUploadBtn.setOnClickListener {
             Intent(this,UploadActivity::class.java).also {
+                startActivity(it)
+            }
+        }
+
+        // Goto Community Section--------------------------------------------------------------------------------------
+        communityBtn.setOnClickListener {
+            Intent(this,CommunityActivity::class.java).also{
                 startActivity(it)
             }
         }
@@ -99,12 +118,33 @@ class ProfileActivity : AppCompatActivity() {
             // authenticate with your backend server, if you have one. Use
             // FirebaseUser.getToken() instead.
             val uid = user.uid
-            var userObj = User(name.toString(),email.toString())
+            var userObj = User(); userObj.setUserName(name!!); userObj.setUserEmail(email!!)
             return userObj
         }
         // [END get_user_profile]
-        val userObj = User("!!","!!")
+        val userObj = User(); userObj.setUserName("!!"); userObj.setUserEmail("!!")
         return userObj
+    }
+
+    private fun getUserinfo() {
+        databaseReference.child(auth.currentUser!!.uid).addValueEventListener(object:
+            ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists() && (snapshot.childrenCount > 0)){
+
+                    val name = snapshot.child("name").getValue().toString()
+                    txtName.setText(name)
+
+                    if(snapshot.hasChild("image")){
+                        var image = snapshot.child("image").getValue().toString()
+                        Picasso.with(applicationContext).load(image).into(dpImg)
+                    }
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(applicationContext,"Error :: Data Retrieving Failed!!", Toast.LENGTH_LONG).show()
+            }
+        })
     }
 
 }

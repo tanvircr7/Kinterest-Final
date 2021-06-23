@@ -59,7 +59,7 @@ class SignUp : AppCompatActivity() {
                 var realtimeDb: RealtimeDatabase = RealtimeDatabase()
 
                 Toast.makeText(this, "" + uid, Toast.LENGTH_SHORT).show();
-                realtimeDb?.writeNewUser(uid.toString(),tiUsername.text.toString(),tiEmail.text.toString())
+                realtimeDb?.writeNewUser(tiUsername.text.toString(),tiEmail.text.toString())
                 Log.i(TAG,auth.uid.toString())
             }
             else {

@@ -99,6 +99,10 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.3.3'
     // Cardview
     implementation "androidx.cardview:cardview:1.0.0"
+    //circleImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    //Image cropper
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
 
 
 //    implementation 'com.google.firebase:firebase-core:16.0.6'
