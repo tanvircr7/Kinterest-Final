@@ -95,12 +95,13 @@ class SignIn : AppCompatActivity() {
     }
 
     private fun updateUI(user: FirebaseUser?) {
+        finish()
         startActivity(Intent(this,MainActivity::class.java))
         Toast.makeText(applicationContext,"Signed in successfully",Toast.LENGTH_SHORT).show()
     }
 
     private fun alreadySignedIn() {
-        //finish();
+        finish();
         //startActivity(getIntent());
         Toast.makeText(applicationContext,"Already Signed In",Toast.LENGTH_LONG).show()
         startActivity(Intent(this,MainActivity::class.java))

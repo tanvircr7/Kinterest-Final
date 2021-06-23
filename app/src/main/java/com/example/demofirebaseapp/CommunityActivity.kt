@@ -33,7 +33,8 @@ class CommunityActivity : AppCompatActivity() {
 
         getData()
 
-        backToCommunityBtn.setOnClickListener {
+        backToProfileBtn.setOnClickListener {
+            finish()
             Intent(this,ProfileActivity::class.java).also {
                 startActivity(it)
             }
@@ -48,7 +49,7 @@ class CommunityActivity : AppCompatActivity() {
                     var node = user.getValue<User>()
                     list.add(node as User)
                 }
-                Toast.makeText(applicationContext,"List size"+list.size.toString(), Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext,"Welcome to the community !",Toast.LENGTH_LONG).show()
                 if(list.size>0){
                     var adapter = CommunityAdapter(applicationContext,list)
                     rvCommunityRecycler.adapter = adapter

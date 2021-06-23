@@ -12,9 +12,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_edit_pro_img.*
 import kotlinx.android.synthetic.main.activity_profile.*
-import kotlinx.android.synthetic.main.activity_profile.dpImg
 
 
 class ProfileActivity : AppCompatActivity() {
@@ -56,13 +54,13 @@ class ProfileActivity : AppCompatActivity() {
         getUserinfo()
 
         // Show user Name and Email------------------------------------------------------------------------------------
-        userObj = getUserProfile()
-        userEmailDb.text = userObj.getUserEmail() // setting email
-        val uName = UserName()
+        //userObj = getUserProfile()
+        userEmailDb.text = getUserEmail() // setting email
+        //val uName = UserName()
         //userObj.setUserEmail(uName.getUserName(userObj.getUserEmail()))
-        userNameDb.text = uName.getUserName(userObj.getUserEmail())
+        //userNameDb.text = uName.getUserName(userObj.getUserEmail())
 
-        Log.i(TAG,userObj.getUserEmail()+userObj.getUserName())
+        //Log.i(TAG,userObj.getUserEmail()+userObj.getUserName())
 
 
         // Upload Ideas Button   Go - Profile Activity -->> Upload Activity--------------------------------------------
@@ -83,9 +81,13 @@ class ProfileActivity : AppCompatActivity() {
         logOutBtn.setOnClickListener {
             Firebase.auth.signOut()
             finish()
-            Intent(this,SignIn::class.java).also{
-                startActivity(it)
-            }
+//            Intent(this,SignIn::class.java).also{
+//                startActivity(it)
+//            }
+
+            val intent = Intent(this, SignIn::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
         }
 
     }
@@ -100,30 +102,32 @@ class ProfileActivity : AppCompatActivity() {
         // [END check_current_user]
     }
 
-    private fun getUserProfile(): User{
+    private fun getUserEmail(): String{
+        var tmp = ""
 
         // [START get_user_profile]
         val user = Firebase.auth.currentUser
         user?.let {
             // Name, email address, and profile photo Url
-            val name = user.displayName
+           // val name = user.displayName
             val email = user.email
             //val photoUrl = user.photoUrl
-            Log.i("getUserProfile",name.toString())
+            //Log.i("getUserProfile",name.toString())
 
             // Check if user's email is verified
-            val emailVerified = user.isEmailVerified
+            //val emailVerified = user.isEmailVerified
 
             // The user's ID, unique to the Firebase project. Do NOT use this value to
             // authenticate with your backend server, if you have one. Use
             // FirebaseUser.getToken() instead.
-            val uid = user.uid
-            var userObj = User(); userObj.setUserName(name!!); userObj.setUserEmail(email!!)
-            return userObj
+            //val uid = user.uid
+           // var userObj = User(); userObj.setUserName(name!!); userObj.setUserEmail(email!!)
+            tmp = email!!
+            return tmp
         }
         // [END get_user_profile]
-        val userObj = User(); userObj.setUserName("!!"); userObj.setUserEmail("!!")
-        return userObj
+        //val userObj = User(); userObj.setUserName("!!"); userObj.setUserEmail("!!")
+        return tmp
     }
 
     private fun getUserinfo() {
@@ -132,8 +136,8 @@ class ProfileActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists() && (snapshot.childrenCount > 0)){
 
-                    val name = snapshot.child("name").getValue().toString()
-                    txtName.setText(name)
+//                    val name = snapshot.child("name").getValue().toString()
+//                    txtName.setText(name)
 
                     if(snapshot.hasChild("image")){
                         var image = snapshot.child("image").getValue().toString()

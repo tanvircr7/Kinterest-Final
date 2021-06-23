@@ -104,6 +104,7 @@ class SignUp : AppCompatActivity() {
     }
 
     private fun updateUI(user: FirebaseUser?) {
+        finish()
         startActivity(Intent(this,MainActivity::class.java))
     }
 

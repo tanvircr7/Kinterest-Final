@@ -43,6 +43,7 @@ class EditProImgActivity : AppCompatActivity() {
         storageReference = FirebaseStorage.getInstance().getReference().child("Profile Pic")
 
         closeProImgBtn.setOnClickListener {
+            finish()
             Intent(this,ProfileActivity::class.java).also{
                 startActivity(it)
             }

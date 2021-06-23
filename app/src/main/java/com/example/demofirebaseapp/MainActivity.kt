@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
 //                }
 
                 R.id.miProfile ->{
+//                    finish()
                     Intent(this,ProfileActivity::class.java).also { startActivity(it) }
 
                 }

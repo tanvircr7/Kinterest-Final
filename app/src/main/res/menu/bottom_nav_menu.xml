@@ -4,8 +4,8 @@
     <item
         android:id="@+id/miHome"
         android:title="Home"
-        android:icon="@drawable/ic_home"
-        android:enabled="true"
+        android:icon="@drawable/ic_home"/>
+<!--        android:enabled="true"-->
         />
 
 
@@ -13,8 +13,8 @@
     <item
         android:id="@+id/miProfile"
         android:title="Profile"
-        android:icon="@drawable/ic_profile"
-        android:enabled="true"
+        android:icon="@drawable/ic_profile"/>
+<!--        android:enabled="true"-->
         />
 
 </menu>
